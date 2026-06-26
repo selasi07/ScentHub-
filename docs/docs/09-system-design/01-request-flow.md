@@ -6,3 +6,4 @@ Feature: Record Sale
 
 Individual request flow document:
 individual-request-flows/22310101-request-flow.md
+
