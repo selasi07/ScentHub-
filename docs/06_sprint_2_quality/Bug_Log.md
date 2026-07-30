@@ -1,20 +1,34 @@
 # Bug Log
 
-## Sprint 2
+## Project
 
-| Bug ID  | Description                                | Severity | Owner | Status | Resolution                    |
-| ------- | ------------------------------------------ | -------- | ----- | ------ | ----------------------------- |
-| BUG-001 | Ghana Cedi symbol not displaying correctly | Medium   | Kelly | Closed | Updated currency formatting   |
-| BUG-002 | Inventory value calculation incorrect      | Medium   | Kelly | Closed | Fixed total calculation logic |
-| BUG-003 | Missing validation for negative values     | High     | Kelly | Closed | Added frontend validation     |
-| BUG-004 | Dashboard button styling inconsistent      | Low      | Kelly | Closed | Updated CSS styles            |
-| BUG-005 | CSV export formatting issue                | Medium   | Kelly | Closed | Corrected CSV generation      |
-| BUG-006 | Search did not refresh immediately         | Low      | Kelly | Closed | Refreshed table after search  |
+ScentHub Inventory Management System
+
+## Sprint
+
+Sprint 2
 
 ---
 
-## Known Issues
+| Bug ID | Defect | Severity | Owner | Status | Resolution |
+|--------|---------|----------|--------|---------|------------|
+| BUG-001 | Dashboard inventory value displayed incorrect totals | Medium | Kelly Adoboe | Closed | Fixed calculation logic in JavaScript |
+| BUG-002 | Ghana Cedi symbol not displaying correctly | Low | Kelly Adoboe | Closed | Updated currency formatting to use ₵ |
+| BUG-003 | Deleted product IDs were not reused | Low | Team | Closed | Accepted SQLite AUTOINCREMENT behaviour |
+| BUG-004 | CSV export produced inconsistent formatting | Medium | Kelly Adoboe | Closed | Updated CSV generation function |
+| BUG-005 | Empty product name could be submitted | High | Kelly Adoboe | Closed | Added frontend validation |
+| BUG-006 | Negative price accepted | High | Kelly Adoboe | Closed | Added validation before submission |
+| BUG-007 | Negative quantity accepted | High | Kelly Adoboe | Closed | Added validation before submission |
+| BUG-008 | Dashboard statistics not refreshing after CRUD operations | Medium | Kelly Adoboe | Closed | Statistics refresh called after every update |
+| BUG-009 | Search results not updating after delete | Medium | Kelly Adoboe | Closed | Reloaded product list after deletion |
+| BUG-010 | Product image upload postponed | Low | Team | Open | Scheduled for future sprint |
 
-* Product image upload has not yet been implemented.
-* User authentication is planned for a future sprint.
-* Pagination is not available for large inventories.
+---
+
+## Summary
+
+- Total Bugs: 10
+- Closed: 9
+- Open: 1
+
+The remaining open issue (product image upload) was intentionally deferred to a future sprint due to time constraints and prioritization of core inventory management features.
