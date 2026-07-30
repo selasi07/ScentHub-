@@ -2,46 +2,84 @@
 <html>
 
 <head>
-
+<meta charset="UTF-8">
 <title>ScentHub Dashboard</title>
-
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 
 <body>
 
 
-<h1>ScentHub Inventory Dashboard</h1>
 
 
-<div class="form-container">
+
+<h1> ScentHub Inventory Dashboard</h1>
 
 
-<input id="perfume_name" placeholder="Perfume Name">
-
-<input id="brand" placeholder="Brand">
-
-<input id="category" placeholder="Category">
-
-<input id="price" placeholder="Price">
-
-<input id="quantity" placeholder="Quantity">
-
-
-<button onclick="addProduct()">
-Add Product
-</button>
-
-
+<div class="stats-container">
+    <div class="card">
+        <h3>Total Products</h3>
+        <p id="totalProducts">0</p>
+    </div>
+    <div class="card">
+        <h3>Total Stock</h3>
+        <p id="totalStock">0</p>
+    </div>
+    <div class="card">
+        <h3>Inventory Value</h3>
+        <p id="inventoryValue">GH₵ 0.00</p>
+    </div>
+    <div class="card">
+        <h3>Low Stock</h3>
+        <p id="lowStockCount">0</p>
+    </div>
 </div>
 
+<div class="top-actions">
+    <input id="search" placeholder="Search perfume..." onkeyup="searchProduct()">
 
+    <div class="button-group">
+        <button type="button" class="open-btn" onclick="toggleForm()">
+            + Add Product
+        </button>
 
-<input id="search" 
-placeholder="Search perfume..."
-onkeyup="searchProduct()">
+        <select id="categoryFilter" onchange="filterCategory()">
+            <option value="all">All Categories</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Unisex">Unisex</option>
+        </select>
+
+        <button type="button" onclick="exportCSV()">Export CSV</button>
+    </div>
+</div>
+
+<div id="productForm" class="product-card hidden">
+    <h2 id="formTitle">Add New Product</h2>
+    <div id="formMessage" class="form-message"></div>
+    <input type="hidden" id="editingProductId">
+
+    <div class="form-grid">
+        <input id="perfume_name" placeholder="Perfume Name">
+        <input id="brand" placeholder="Brand">
+        <select id="category">
+            <option value="">Select Category</option>
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Unisex">Unisex</option>
+        </select>
+        <input id="price" placeholder="Price">
+        <input id="quantity" placeholder="Quantity">
+    </div>
+
+    <button type="button" class="add-btn" id="saveProductBtn" onclick="submitProductForm()">
+        Save Product
+    </button>
+    <button type="button" class="add-btn hidden" id="cancelEditBtn" onclick="cancelEdit()">
+        Cancel
+    </button>
+</div>
 
 
 
@@ -57,6 +95,7 @@ onkeyup="searchProduct()">
 <th>Category</th>
 <th>Price</th>
 <th>Quantity</th>
+<th>Status</th>
 <th>Actions</th>
 
 </tr>
@@ -73,11 +112,13 @@ onkeyup="searchProduct()">
 
 
 
+<div class="logout-container">
+
 <button onclick="logout()">
 Logout
 </button>
 
-
+</div>
 
 <script src="script.js"></script>
 

@@ -18,13 +18,36 @@ router.get("/", (req, res) => {
 
 // ADD PRODUCT
 router.post("/", (req, res) => {
-    const {
-        perfume_name,
+    const{
+           perfume_name,
         brand,
         category,
         price,
         quantity
     } = req.body;
+if (
+    !perfume_name ||
+    !brand ||
+    !category ||
+    price === undefined ||
+    quantity === undefined
+) {
+    return res.status(400).json({
+        message: "All fields are required."
+    });
+}
+
+if (price < 0) {
+    return res.status(400).json({
+        message: "Price cannot be negative."
+    });
+}
+
+if (quantity < 0) {
+    return res.status(400).json({
+        message: "Quantity cannot be negative."
+    });
+}
 
     const sql = `
         INSERT INTO products 
@@ -48,7 +71,6 @@ router.post("/", (req, res) => {
         }
     );
 });
-
 
 // ===============================
 // GET SINGLE PRODUCT BY ID
