@@ -1,59 +1,99 @@
-# Test Cases
+# Manual Test Cases
 
 ## TC-01 Add Product
 
-Expected:
-Product is added successfully.
+Expected Result:
+Product is successfully added.
 
 Result:
-Pass
+PASS
 
 ---
 
 ## TC-02 Edit Product
 
-Expected:
-Product updates correctly.
+Expected Result:
+Product information updates successfully.
 
 Result:
-Pass
+PASS
 
 ---
 
 ## TC-03 Delete Product
 
-Expected:
-Product is removed.
+Expected Result:
+Product is removed from inventory.
 
 Result:
-Pass
+PASS
 
 ---
 
 ## TC-04 Search Product
 
-Expected:
+Expected Result:
 Matching products displayed.
 
 Result:
-Pass
+PASS
 
 ---
 
-## TC-05 Export CSV
+## TC-05 Dashboard Statistics
 
-Expected:
-CSV downloads correctly.
+Expected Result:
+Statistics update automatically.
 
 Result:
-Pass
+PASS
 
 ---
 
-## TC-06 Validation
+## TC-06 Export CSV
 
-Expected:
-Negative price rejected.
+Expected Result:
+CSV downloads successfully.
 
 Result:
-Pass
+PASS
+
+---
+
+## TC-07 Validation
+
+Expected Result:
+Empty product names are rejected.
+
+Result:
+PASS
+
+---
+
+## TC-08 Validation
+
+Expected Result:
+Negative prices are rejected.
+
+Result:
+PASS
+
+---
+
+## TC-09 Validation
+
+Expected Result:
+Negative quantities are rejected.
+
+Result:
+PASS
+
+---
+
+## TC-10 Currency
+
+Expected Result:
+Prices display using the Ghana Cedi symbol (₵).
+
+Result:
+PASS
