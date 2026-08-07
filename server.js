@@ -16,5 +16,9 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log("====================================");
+    console.log(" ScentHub Server Started");
+    console.log(` Server running on http://localhost:${PORT}`);
+    console.log(` Started at: ${new Date().toLocaleString()}`);
+    console.log("====================================");
 });

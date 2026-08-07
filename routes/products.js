@@ -2,15 +2,20 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
-console.log("products.js loaded");
+console.log("[INFO] Product routes loaded.");
 
 //  ALL PRODUCTS
 router.get("/", (req, res) => {
     db.all("SELECT * FROM products", [], (err, rows) => {
         if (err) {
-            res.status(500).json({ error: err.message });
-            return;
-        }
+    console.error("[ERROR] Failed to retrieve products:", err.message);
+
+    res.status(500).json({
+        error: err.message
+    });
+
+    return;
+}
 
         res.json(rows);
     });
@@ -60,10 +65,17 @@ if (quantity < 0) {
         [perfume_name, brand, category, price, quantity],
         function(err) {
             if (err) {
-                res.status(500).json({ error: err.message });
-                return;
-            }
+    console.error("[ERROR] Failed to add product:", err.message);
 
+    res.status(500).json({
+        error: err.message
+    });
+
+    return;
+}
+console.log(
+    `[INFO] Product added: ${perfume_name} (ID: ${this.lastID})`
+);
             res.json({
                 message: "Product added successfully",
                 id: this.lastID
@@ -84,9 +96,14 @@ router.get("/:id", (req, res) => {
         (err, row) => {
 
             if (err) {
-                res.status(500).json({ error: err.message });
-                return;
-            }
+    console.error("[ERROR] Failed to retrieve product:", err.message);
+
+    res.status(500).json({
+        error: err.message
+    });
+
+    return;
+}
 
             if (!row) {
                 res.status(404).json({
@@ -139,12 +156,15 @@ router.put("/:id", (req, res) => {
         ],
         function(err) {
 
-            if (err) {
-                res.status(500).json({
-                    error: err.message
-                });
-                return;
-            }
+           if (err) {
+    console.error("[ERROR] Failed to update product :", err.message);
+
+    res.status(500).json({
+        error: err.message
+    });
+
+    return;
+}
 
 
             if (this.changes === 0) {
@@ -154,7 +174,9 @@ router.put("/:id", (req, res) => {
                 return;
             }
 
-
+console.log(
+    `[INFO] Product updated: ID ${id}`
+);
             res.json({
                 message: "Product updated successfully",
                 id: id
@@ -177,6 +199,7 @@ router.delete("/:id", (req, res) => {
         function(err) {
 
             if (err) {
+                console.error("[ERROR] Failed to delete product:", err.message);
                 res.status(500).json({
                     error: err.message
                 });
@@ -191,7 +214,9 @@ router.delete("/:id", (req, res) => {
                 return;
             }
 
-
+console.log(
+    `[INFO] Product deleted: ID ${id}`
+);
             res.json({
                 message: "Product deleted successfully"
             });
