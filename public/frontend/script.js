@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:3000/products";
+const API_URL = window.location.hostname === "localhost"
+    ? "http://localhost:3000/products"
+    : "https://scenthub-h2er.onrender.com/products";
 let productsCache = [];
 
 // Load products when page opens
