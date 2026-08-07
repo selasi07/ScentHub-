@@ -7,7 +7,7 @@ function login(){
 
     if(username === "admin" && password === "admin123"){
 
-        window.location.href = "dashboard.html";
+        window.location.href = "/frontend/dashboard.html";
 
     }
 
