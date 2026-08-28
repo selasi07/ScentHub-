@@ -29,7 +29,23 @@ function addProduct() {
     const priceValue = parseFloat(document.getElementById('price').value);
     const quantityValue = parseInt(document.getElementById('quantity').value, 10);
     const messageEl = document.getElementById('formMessage');
+    if (!name || !brand || !category || Number.isNaN(priceValue) || Number.isNaN(quantityValue)) {
+    messageEl.textContent = 'Please fill in all required fields.';
+    messageEl.style.color = 'red';
+    return;
+}
 
+if (priceValue < 0) {
+    messageEl.textContent = 'Price cannot be negative.';
+    messageEl.style.color = 'red';
+    return;
+}
+
+if (quantityValue < 0) {
+    messageEl.textContent = 'Quantity cannot be negative.';
+    messageEl.style.color = 'red';
+    return;
+}
     if (!name || !brand || !category || Number.isNaN(priceValue) || Number.isNaN(quantityValue)) {
         if (messageEl) {
             messageEl.textContent = 'Please fill in all fields before saving.';
